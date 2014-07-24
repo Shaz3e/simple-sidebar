@@ -61,6 +61,22 @@
 				.add( $wrapper )
 				.not( $ignore ),
 			w         = $( window ).width();
+		
+		//adding default style to $sidebar
+		$sidebar
+			.css( defStyle )
+			//wrapping inner content to let it overflow
+			.wrapInner( '<div data-' + dataName + '="sub-wrapper">' );
+			
+		var subWrapper = $sidebar.children().filter(function() {
+			return $( this ).data( dataName ) === 'sub-wrapper' ;
+		});
+		
+		subWrapper.css({
+			width: '100%',
+			height: '100%',
+			overflow: 'auto'
+		});
 			
 		//Appending to 'body' the mask-div and adding its style
 		$( 'body' ).append( '<div data-' + dataName + '="mask">' );
@@ -84,8 +100,32 @@
 				zIndex: config.sidebar.style.zIndex - 1 })
 			//hiding the mask-div. This element will be triggered only when the sidebar will be opened.
 			.hide();
+		
+		//Animation functions
+		var animateToRight = function() {
+			var nsbw = $sidebar.width();
 			
-		//assining value to sbw
+			$elements.animate({
+				marginLeft: '+=' + nsbw,
+				marginRight: '-=' + nsbw
+			}, {
+				duration: duration,
+				easing: easing
+			});
+		},
+			animateToLeft = function() {
+				var nsbw = $sidebar.width();
+				
+				$elements.animate({
+					marginLeft: '-=' + nsbw,
+					marginRight: '+=' + nsbw
+				}, {
+					duration: duration,
+					easing: easing
+				});
+			};
+		
+		//assigning value to sbw
 		if ( w < winMaxW ) {
 			sbw = w - gap;
 		} else {
@@ -112,6 +152,11 @@
 			
 			marginA = 'margin-left';
 			marginB = 'margin-right';
+			
+			$opener.click( animateToRight );
+			
+			maskDiv.add( $links )
+				.click( animateToLeft );
 		} else {
 			$sidebar.css({
 				position: 'fixed',
@@ -123,52 +168,14 @@
 			});
 			marginA = 'margin-right';
 			marginB = 'margin-left';
+			
+			$opener.click( animateToLeft );
+			
+			maskDiv.add( $links )
+				.click( animateToRight );
 		}
 		
-		$sidebar
-			.css( defStyle )
-			//wrapping inner content to let it overflow
-			.wrapInner( '<div data-' + dataName + '="sub-wrapper">' );
-			
-		var subWrapper = $sidebar.children().filter(function() {
-			return $( this ).data( dataName ) === 'sub-wrapper' ;
-		});
 		
-		subWrapper.css({
-			width: '100%',
-			height: '100%',
-			overflow: 'auto'
-		});
-		
-		//Open sidebar animation function
-		var animateToRight = function() {
-			var nsbw = $sidebar.width();
-			
-			$elements.animate({
-				marginLeft: '+=' + nsbw,
-				marginRight: '-=' + nsbw
-			}, {
-				duration: duration,
-				easing: easing
-			});
-			
-			maskDiv.fadeIn();
-		},
-			animateToLeft = function() {
-				var nsbw = $sidebar.width();
-				
-				$elements.animate({
-					marginLeft: '-=' + nsbw,
-					marginRight: '+=' + nsbw
-				}, {
-					duration: duration,
-					easing: easing
-				});
-			};
-			
-		$opener.click( animateToRight )
-		maskDiv.add( $links )
-			.click( animateToLeft );
 		
 	};
 })(jQuery);
