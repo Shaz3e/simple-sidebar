@@ -1,5 +1,5 @@
 /*
-** Simple Sidebar v1.0.0 by DcDeiv https://github.com/dcdeiv
+** Simple Sidebar v1.0.1 by DcDeiv https://github.com/dcdeiv
 ** Api v1.0.0
 **
 ** GPLv2 http://www.gnu.org/licenses/gpl-2.0-standalone.html

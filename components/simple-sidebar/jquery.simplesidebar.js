@@ -1,4 +1,4 @@
-//Simple Sidebar v1.0.0 by DcDeiv https://github.com/dcdeiv
+//Simple Sidebar v1.0.1 by DcDeiv https://github.com/dcdeiv
 // GPLv2 http://www.gnu.org/licenses/gpl-2.0-standalone.html
 (function( $ ) {
 	$.fn.simpleSidebar = function( options ) {
@@ -46,7 +46,7 @@
 			gap       = config.sidebar.gap,
 			$links    = $( config.sidebar.links ),
 			defStyle  = config.sidebar.style,
-			maskStyle = config.mask.style,
+			maskDef   = config.mask.style,
 			winMaxW   = sbMaxW + gap,
 			//selecting all fixed elements except the sidebar and the ignore elements
 			$fixedEl  = $( '*' )
@@ -60,13 +60,24 @@
 				.add( $sidebar )
 				.add( $wrapper )
 				.not( $ignore ),
-			w         = $( window ).width();
+			w         = $( window ).width(),
+			MaskDef = {
+				position: 'fixed',
+				top: -200,
+				right: -200,
+				left: -200,
+				bottom: -200,
+				zIndex: config.sidebar.style.zIndex - 1
+			},
+			maskStyle = $.extend( {},  maskDef, MaskDef );
+			
+			console.log( maskStyle );
 		
 		//adding default style to $sidebar
 		$sidebar
 			.css( defStyle )
 			//wrapping inner content to let it overflow
-			.wrapInner( '<div data-' + dataName + '="sub-wrapper">' );
+			.wrapInner( '<div data-' + dataName + '="sub-wrapper"></div>' );
 			
 		var subWrapper = $sidebar.children().filter(function() {
 			return $( this ).data( dataName ) === 'sub-wrapper' ;
@@ -79,26 +90,14 @@
 		});
 			
 		//Appending to 'body' the mask-div and adding its style
-		$( 'body' ).append( '<div data-' + dataName + '="mask">' );
+		$( 'body' ).prepend( '<div data-' + dataName + '="mask"></div>' );
 		
 		var maskDiv = $( 'body' ).children().filter(function(){
 			return $( this ).data( dataName ) === 'mask' ;
 		});
 		
 		maskDiv
-			//default style by user
 			.css( maskStyle )
-			//style properties that cannot be ovverriden
-			.css({
-				//mask-div is positioned with a negative integer for a bug in mobile browsers. On scrolling the page, the div will move as the browser-navigation-bar appears (Chrome Mobile, Opera Mobile, Firefox Mobile)
-				position: 'fixed',
-				top: -200,
-				right: -200,
-				left: -200,
-				bottom: -200,
-				//setting the z-index to 1 level below the sidebar so that it will overlay the page but not the sidebar
-				zIndex: config.sidebar.style.zIndex - 1 })
-			//hiding the mask-div. This element will be triggered only when the sidebar will be opened.
 			.hide();
 		
 		//Animate $elements to the right
@@ -244,4 +243,4 @@
 		
 		return this;
 	};
-})(jQuery);
+})( jQuery );

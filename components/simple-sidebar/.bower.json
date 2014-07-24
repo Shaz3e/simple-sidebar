@@ -1,5 +1,6 @@
 {
   "name": "Simple-Sidebar",
+  "version": "1.0.1",
   "homepage": "https://github.com/dcdeiv/simple-sidebar",
   "authors": [
     "dcdeiv <davide.dicriscito@gmail.com>"
@@ -22,14 +23,16 @@
     "test",
     "tests"
   ],
-  "_release": "2db2c99d08",
+  "moduleType": [
+    "globals"
+  ],
+  "_release": "1.0.1",
   "_resolution": {
-    "type": "branch",
-    "branch": "master",
-    "commit": "2db2c99d0818012076e23e94a5a0369cc1c5010f"
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "0c8424dd4c9fda655a795a7f361cba275ffc82b9"
   },
   "_source": "git://github.com/dcdeiv/simple-sidebar.git",
   "_target": "*",
-  "_originalSource": "simple-sidebar",
-  "_direct": true
+  "_originalSource": "simple-sidebar"
 }
