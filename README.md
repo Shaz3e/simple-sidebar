@@ -5,9 +5,9 @@ A simple jQuery sidebar plugin
 
 ####With this simple plug-in you can choose to use the right-sidebar or the left-sidebar and switch from one to the other in just one type! [see options](#options)####
 
-##[DEMO](http://dcdeiv.github.io/simple-sidebar)
-##[Right-Sidebar DEMO](http://dcdeiv.github.io/simple-sidebar/demo-right/index.html)
-##[Left-Sidebar DEMO](http://dcdeiv.github.io/simple-sidebar/demo-left/index.html)
+###[DEMO](http://dcdeiv.github.io/simple-sidebar)
+###[Right-Sidebar DEMO](http://dcdeiv.github.io/simple-sidebar/demo-right/index.html)
+###[Left-Sidebar DEMO](http://dcdeiv.github.io/simple-sidebar/demo-left/index.html)
 
 ##DOWNLOAD
 Git: `git clone https://github.com/dcdeiv/simple-sidebar`
