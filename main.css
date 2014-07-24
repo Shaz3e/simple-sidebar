@@ -31,3 +31,8 @@
   float: left;
   margin-right: 1.5em;
 }
+
+#sidebar {
+	background-color: #2e2e2e;
+	color:#f8f8f8;
+}
