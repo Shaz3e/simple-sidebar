@@ -3,7 +3,7 @@
 (function( $ ) {
 	$.fn.simpleSidebar = function( options ) {
 		//declaring all global variables
-		var sbw, align, marginA, marginB,
+		var sbw, align, marginA, marginB, callbackA, callbackB,
 			//allowing user customisation
 			defaults  = {
 				settings: {
@@ -101,7 +101,7 @@
 			//hiding the mask-div. This element will be triggered only when the sidebar will be opened.
 			.hide();
 		
-		//Animation functions
+		//Animate $elements to the right
 		var animateToRight = function() {
 			var nsbw = $sidebar.width();
 			
@@ -110,9 +110,11 @@
 				marginRight: '-=' + nsbw
 			}, {
 				duration: duration,
-				easing: easing
+				easing: easing,
+				complete: callbackA
 			});
 		},
+			//animate $elements to the left
 			animateToLeft = function() {
 				var nsbw = $sidebar.width();
 				
@@ -121,7 +123,24 @@
 					marginRight: '+=' + nsbw
 				}, {
 					duration: duration,
-					easing: easing
+					easing: easing,
+					complete: callbackB
+				});
+			},
+			//hiding overflow [callback(A/B)]
+			overflowTrue = function() {
+				$( 'body, html' ).css({
+					overflow: 'hidden'
+				});
+				
+				$( maskDiv ).fadeIn();
+			},
+			//adding overflow [callback(A/B)]
+			overflowFalse = function() {
+				$( maskDiv ).fadeOut(function() {
+					$( 'body, html' ).css({
+						overflow: 'auto'
+					});
 				});
 			};
 		
@@ -153,6 +172,9 @@
 			marginA = 'margin-left';
 			marginB = 'margin-right';
 			
+			callbackA = overflowTrue;
+			callbackB = overflowFalse;
+			
 			$opener.click( animateToRight );
 			
 			maskDiv.add( $links )
@@ -166,8 +188,12 @@
 				width: sbw,
 				marginRight: -sbw
 			});
+			
 			marginA = 'margin-right';
 			marginB = 'margin-left';
+			
+			callbackA = overflowFalse;
+			callbackB = overflowTrue;
 			
 			$opener.click( animateToLeft );
 			
