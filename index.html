@@ -12,6 +12,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 <script src="jquery.simplesidebar.js"></script>
 
+<link rel="stylesheet" type="text/css" href="main.css">
+
 </head>
 
 <body>
@@ -44,13 +46,40 @@
 <p>Fusce interdum, elit ut elementum scelerisque, arcu metus laoreet justo, suscipit gravida erat turpis sagittis nulla. Sed tempus tortor nec nulla eleifend, sed eleifend nulla facilisis. Curabitur ac turpis nec mauris vestibulum interdum. Phasellus elit lacus, iaculis vestibulum pellentesque eu, ultrices sollicitudin eros. Nulla sit amet ligula arcu. Sed sodales nulla vel massa aliquam, et pulvinar turpis malesuada. Donec convallis varius est eget condimentum. Integer aliquam faucibus pretium. Curabitur pulvinar congue mi eu tincidunt. Pellentesque leo urna, pellentesque sit amet nunc ut, euismod sollicitudin arcu. Morbi et metus aliquam, dapibus leo eget, aliquet dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent molestie imperdiet lobortis. Proin rhoncus arcu quis purus fermentum lobortis.</p>
 </div>
 
-<div id="toolbar">
+<div class="toolbar">
 	<div id="open-sb" class="menu-button menu-left"></div>
 </div>
 
 <script>
 $( document ).ready(function() {
-	$( '.sidebar' ).simpleSidebar();
-)};
+	$( '.sidebar' ).simpleSidebar({
+		settings: {
+			opener: 'open-sb',
+			wrapper: '#wrapper',
+			ignore: undefined,
+			data: 'ssbplugin',
+			animation: {
+				duration: 500,
+				easing: 'swing'
+			}
+		},
+		sidebar: {
+			align: undefined,
+			width: 350, //pixels
+			gap: 64, //pixels
+			closingLinks: undefined,
+			style: {
+				zIndex: 3000
+			}
+		},
+		mask: {
+			style: {
+				backgroundColor: 'grey',
+				opacity: 0.5,
+				filter: 'Alpha(opacity=50)' //IE8 and earlier
+			}
+		}
+	});
+});
 </script>
 </body>
