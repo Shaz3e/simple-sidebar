@@ -6,7 +6,8 @@ A simple jQuery sidebar plugin
 ##[DEMO](http://dcdeiv.github.io/simple-sidebar)
 
 ##DOWNLOAD
-  Git: `git clone https://github.com/dcdeiv/simple-sidebar`
+Git: `git clone https://github.com/dcdeiv/simple-sidebar`
+  
 Bower: `bower install simple-sidebar`
 
 ##INSTALL
