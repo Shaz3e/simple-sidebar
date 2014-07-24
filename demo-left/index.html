@@ -6,7 +6,7 @@
 	<meta name="description" content="A Simple jQuery Sidebar Plug-In">
 	<meta name="author" content="Davide DC" >
 	
-	<title>Simple Left Sidebar</title>
+	<title>Simple Sidebar</title>
 	
 	<link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Roboto:400,100,300,500,700" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
@@ -30,18 +30,17 @@
 	</header>
 	
 	<main>
-		<section>
-		</section>
+		
 	</main>
 	
 	<div class="toolbar">
 		<div id="open-sb" class="menu-button menu-left"></div>
 		<a href="#google-drive">
-			<img width="32" height="32" src="pictures/gdrive48@2x.png" alt="Google Drive"></a>
+			<img width="32" height="32" src="../pictures/gdrive48@2x.png" alt="Google Drive"></a>
 		<a href="#github">
-			<img width="32" height="32" src="pictures/github48@2x.png" alt="GitHub"></a>
+			<img width="32" height="32" src="../pictures/github48@2x.png" alt="GitHub"></a>
 		<a href="#bower">
-			<img width="32" height="32" src="pictures/bower48@2x.png" alt="Bower"></a>
+			<img width="32" height="32" src="../pictures/bower48@2x.png" alt="Bower"></a>
 	</div>
 	
 	<section class="sidebar">
@@ -65,6 +64,9 @@
 			</ul>
 		</nav>
 	</section>
+	
+	<!--Github Ribbon-->
+	<a href="https://github.com/dcdeiv/simple-sidebar"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
 
 </div>
 
@@ -74,7 +76,7 @@ $( document ).ready(function() {
 		cache: false
 	});
 
-	$( '#sidebar' ).simpleSidebar({
+	$( '.sidebar' ).simpleSidebar({
 		settings: {
 			opener: '#open-sb',
 			wrapper: '.wrapper',
