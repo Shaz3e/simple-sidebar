@@ -3,7 +3,7 @@
 (function( $ ) {
 	$.fn.simpleSidebar = function( options ) {
 		//declaring all global variables
-		var sbw, align, marginA, marginB, callbackA, callbackB,
+		var sbw, align, callbackA, callbackB,
 			//allowing user customisation
 			defaults  = {
 				settings: {
@@ -169,9 +169,6 @@
 				marginLeft: -sbw
 			});
 			
-			marginA = 'margin-left';
-			marginB = 'margin-right';
-			
 			callbackA = overflowTrue;
 			callbackB = overflowFalse;
 			
@@ -189,9 +186,6 @@
 				marginRight: -sbw
 			});
 			
-			marginA = 'margin-right';
-			marginB = 'margin-left';
-			
 			callbackA = overflowFalse;
 			callbackB = overflowTrue;
 			
@@ -201,7 +195,53 @@
 				.click( animateToRight );
 		}
 		
+		//Adding responsive to $sidebar
+		$( window ).resize(function() {
+			var rsbw, sbMar,
+				w = $( this ).width();
+				
+			if ( w < winMaxW ) {
+				rsbw = w - gap;
+			} else {
+				rsbw = sbMaxW;
+			}
+			
+			$sidebar.css({
+				width: rsbw
+			});
+			
+			//fixing $element position according to $sidebar new width (rsbw)
+			if ( 'left' === align ) {
+				sbMar = parseInt( $sidebar.css( 'margin-left' ) );
+				
+				if ( 0 > sbMar ) {
+					$sidebar.css({
+						marginLeft: -rsbw
+					});
+				} else {
+					$elements.not( $sidebar )
+						.css({
+							marginLeft: + rsbw,
+							marginRight: - rsbw
+						});
+				}
+			} else {
+				sbMar = parseInt( $sidebar.css( 'margin-right' ) );
+				
+				if ( 0 < sbMar ) {
+					$sidebar.css({
+						marginRight: -rsbw
+					});
+				} else {
+					$elements.not( $sidebar )
+						.css({
+							marginLeft: - rsbw,
+							marginRight: + rsbw
+						});
+				}
+			}
+		});
 		
-		
+		return this;
 	};
 })(jQuery);
