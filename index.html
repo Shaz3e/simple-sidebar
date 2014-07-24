@@ -47,14 +47,15 @@
 </div>
 
 <div class="toolbar">
-	<div id="open-sb" class="menu-button menu-left"></div>
+	<div class="menu-button menu-left open-sb"></div>
+	<div class="menu-button menu-right open-sb"></div>
 </div>
 
 <script>
 $( document ).ready(function() {
 	$( '#sidebar' ).simpleSidebar({
 		settings: {
-			opener: '#open-sb',
+			opener: '.open-sb',
 			wrapper: '#wrapper',
 			ignore: undefined,
 			data: 'ssbplugin',
