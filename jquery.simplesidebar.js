@@ -3,7 +3,7 @@
 (function( $ ) {
 	$.fn.simpleSidebar = function( options ) {
 		//declaring all global variables
-		var sbw, align,
+		var sbw, align, marginA, marginB,
 			//allowing user customisation
 			defaults  = {
 				settings: {
@@ -27,7 +27,7 @@
 				},
 				mask: {
 					style: {
-						backgroundColor: 'grey',
+						backgroundColor: 'black',
 						opacity: 0.5,
 						filter: 'Alpha(opacity=50)' //IE8 and earlier
 					}
@@ -44,7 +44,7 @@
 			defAlign  = config.sidebar.align,
 			sbMaxW    = config.sidebar.width,
 			gap       = config.sidebar.gap,
-			$links    = config.sidebar.links,
+			$links    = $( config.sidebar.links ),
 			defStyle  = config.sidebar.style,
 			maskStyle = config.mask.style,
 			winMaxW   = sbMaxW + gap,
@@ -109,6 +109,9 @@
 				width: sbw,
 				marginLeft: -sbw
 			});
+			
+			marginA = 'margin-left';
+			marginB = 'margin-right';
 		} else {
 			$sidebar.css({
 				position: 'fixed',
@@ -118,6 +121,8 @@
 				width: sbw,
 				marginRight: -sbw
 			});
+			marginA = 'margin-right';
+			marginB = 'margin-left';
 		}
 		
 		$sidebar
@@ -134,6 +139,36 @@
 			height: '100%',
 			overflow: 'auto'
 		});
+		
+		//Open sidebar animation function
+		var animateToRight = function() {
+			var nsbw = $sidebar.width();
+			
+			$elements.animate({
+				marginLeft: '+=' + nsbw,
+				marginRight: '-=' + nsbw
+			}, {
+				duration: duration,
+				easing: easing
+			});
+			
+			maskDiv.fadeIn();
+		},
+			animateToLeft = function() {
+				var nsbw = $sidebar.width();
+				
+				$elements.animate({
+					marginLeft: '-=' + nsbw,
+					marginRight: '+=' + nsbw
+				}, {
+					duration: duration,
+					easing: easing
+				});
+			};
+			
+		$opener.click( animateToRight )
+		maskDiv.add( $links )
+			.click( animateToLeft );
 		
 	};
 })(jQuery);
