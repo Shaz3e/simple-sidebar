@@ -1,3 +1,40 @@
+.alignself-center {
+  margin: 0 auto;
+}
+
+.demos {
+  margin-top: 2em;
+}
+
+.demos a,
+.demos a:active,
+.demos a:focus,
+.demos a:hover,
+.demos a:link,
+.demos a:visited {
+  border: 0;
+  font: inherit;
+}
+
+.demo {
+  width: 40%;
+  border: 1px solid;
+  padding: 1em .5em;
+  border-radius: .2em;
+  color: white;
+}
+
+.demo-left {
+  float: left;
+  border-color: #b0120a;
+  background-color: #e84e40;
+}
+.demo-right {
+  float: right;
+  border-color: #056f00;
+  background-color: #72d572;
+}
+
 .code{
     -moz-border-radius:.3em;
     -webkit-border-radius:.3em;
@@ -46,6 +83,7 @@ main {
     max-width: 600px;
     margin: 0 auto;
     margin-top: 4em;
+    color: inherit;
 }
 
 main a,
@@ -57,7 +95,7 @@ main a:visited {
     font-family: 'fira mono';
     text-transform: uppercase;
     font-size:90%;
-    color:black;
+    color:inherit;
     border-bottom: 1px dotted black;
 }
 
