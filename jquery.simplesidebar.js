@@ -44,7 +44,7 @@
 			defAlign  = config.sidebar.align,
 			sbMaxW    = config.sidebar.width,
 			gap       = config.sidebar.gap,
-			$links    = $( config.sidebar.links ),
+			$links    = $sidebar.find( config.sidebar.closingLinks ),
 			defStyle  = config.sidebar.style,
 			maskDef   = config.mask.style,
 			winMaxW   = sbMaxW + gap,
@@ -55,8 +55,14 @@
 				.filter(function() {
 					return $( this ).css( 'position' ) == 'fixed';
 				}),
+			$absolEl  = $( '*' )
+				.not( $ignore )
+				.filter(function() {
+					return $( this ).css( 'position' ) == 'absolute';
+				}),
 			//selecting all elements.
 			$elements = $fixedEl
+				.add( $absolEl )
 				.add( $sidebar )
 				.add( $wrapper )
 				.not( $ignore ),
@@ -102,26 +108,30 @@
 		var animateToRight = function() {
 			var nsbw = $sidebar.width();
 			
-			$elements.animate({
-				marginLeft: '+=' + nsbw,
-				marginRight: '-=' + nsbw
-			}, {
-				duration: duration,
-				easing: easing,
-				complete: callbackA
+			$elements.each(function() {
+				$( this ).animate({
+					marginLeft: '+=' + nsbw,
+					marginRight: '-=' + nsbw
+				}, {
+					duration: duration,
+					easing: easing,
+					complete: callbackA
+				});
 			});
 		},
 			//animate $elements to the left
 			animateToLeft = function() {
 				var nsbw = $sidebar.width();
 				
-				$elements.animate({
-					marginLeft: '-=' + nsbw,
-					marginRight: '+=' + nsbw
-				}, {
-					duration: duration,
-					easing: easing,
-					complete: callbackB
+				$elements.each(function() {
+					$( this ).animate({
+						marginLeft: '-=' + nsbw,
+						marginRight: '+=' + nsbw
+					}, {
+						duration: duration,
+						easing: easing,
+						complete: callbackB
+					});
 				});
 			},
 			//hiding overflow [callback(A/B)]
@@ -225,7 +235,7 @@
 			} else {
 				sbMar = parseInt( $sidebar.css( 'margin-right' ) );
 				
-				if ( 0 < sbMar ) {
+				if ( 0 > sbMar ) {
 					$sidebar.css({
 						marginRight: -rsbw
 					});
