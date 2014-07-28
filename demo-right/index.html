@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="description" content="A Simple jQuery Sidebar Plug-In">
+	<meta name="author" content="Davide DC" >
+	
+	<title>Simple Sidebar</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Roboto:400,100,300,500,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/reboot.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/media.css">
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><style type="text/css"></style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+	<script src="../components/simple-sidebar/jquery.simplesidebar.js"></script>
+	<!--[if lf IE 9]>
+	<script src="components/html5shiv/dist/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+<div class="wrapper">
+	<header class="main-header">
+		<h1>Simple Sidebar</h1>
+		<h3>Right</h3>
+	</header>
+	
+	<main>
+	
+		<section>
+			<header>
+				<h2>Download</h2>
+			</header>
+			<p><h6><a href="https://github.com/dcdeiv/simple-sidebar/releases" target="_blank">ZIP</a></h6>
+			<p><h6>GitHub:</h6>
+			<code>git clone https://github.com/dcdeiv/simple-sidebar</code></p>
+			<p><h6>Bower:</h6>
+			<code>Bower install simple-sidebar</code></p>
+		</section>
+	
+		<section>
+			<header>
+				<h2>Example of Usage</h2>
+				<h3>minimum required</h3>
+			</header>
+
+<pre class="code">
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;bower_components/simple-sidebar/dist/jquery.simplesidebar.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+
+&lt;body&gt;
+  
+  &lt;div class=&quot;wrapper&quot;&gt;
+    &lt;!--content--&gt;
+  &lt;/div&gt;
+  
+  &lt;section class=&quot;sidebar&quot;&gt;
+    &lt;!--content--&gt;
+  &lt;/section&gt;
+  
+  &lt;section class=&quot;navbar&quot;&gt;
+    &lt;div id=&quot;open-sb&quot; class=&quot;menu-icon menu-button menu-left&quot;&gt;
+  &lt;/section&gt;
+  
+  &lt;script&gt;
+  $( &quot;.sidebar&quot; ).simpleSidebar({
+      settings: {
+        opener: &quot;#open-sb&quot;,
+        wrapper: &quot;.wrapper&quot;,
+        animation: {
+          easing: &quot;easeOutQuint&quot;
+        }
+      },
+      sidebar: {
+        align: &quot;right&quot;,
+        width: 200,
+        closingLinks: 'a',
+      }
+    });
+  &lt;/script&gt;
+
+&lt;/body&gt;
+</pre>
+		</section>
+		
+	</main>
+	
+	<div class="toolbar">
+		<div id="open-sb" class="menu-button menu-right"></div>
+	</div>
+	
+	<section class="sidebar">
+		<nav>
+			<h6>Simple Left Sidebar</h6>
+			<ul>
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="../demo-left/index.html">Demo Left Sidebar</a></li>
+				<li><a href="../demo-right/index.html">Demo Right Sidebar</a></li>
+				<li><a href="../index.html#github">GitHub</a></li>
+				<li><a href="../index.html#bower">Bower</a></li>
+				<li><a href="../index.html#set-up">Set-Up</a></li>
+				<li><a href="../index.html#options">Options</a></li>
+			</ul>
+			
+			<hr>
+			
+			<h6>DcDev</h6>
+			<ul>
+				<li><a href="http://dcdev.altervista.org/">DcDev Homepage</a></li><a href="http://dcdev.altervista.org/">
+				</a><li><a href="http://dcdev.altervista.org/"></a><a href="http://dcdev.altervista.org/plugins/">Other Plugins</a></li>
+				<li><a href="http://www.github.com/dcdeiv">GitHub</a></li>
+			</ul>
+		</nav>
+	</section>
+</div>
+
+<a target="_blank" href="https://github.com/dcdeiv/simple-sidebar"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"></a>
+
+<script>
+$( document ).ready(function() {
+	$.ajaxSetup({
+		cache: false
+	});
+
+	$( '.sidebar' ).simpleSidebar({
+		settings: {
+			opener: '#open-sb',
+			wrapper: '.wrapper',
+			animation: {
+				duration: 500,
+				easing: 'easeOutQuint'
+			}
+		},
+		sidebar: {
+			align: 'right',
+			width: 200,
+			closingLinks: 'a',
+		}
+	});
+});
+</script>

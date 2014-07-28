@@ -70,8 +70,6 @@
 				zIndex: config.sidebar.style.zIndex - 1
 			},
 			maskStyle = $.extend( {},  maskDef, MaskDef );
-			
-			console.log( maskStyle );
 		
 		//adding default style to $sidebar
 		$sidebar
@@ -90,7 +88,7 @@
 		});
 			
 		//Appending to 'body' the mask-div and adding its style
-		$( 'body' ).prepend( '<div data-' + dataName + '="mask"></div>' );
+		$( 'body' ).append( '<div data-' + dataName + '="mask"></div>' );
 		
 		var maskDiv = $( 'body' ).children().filter(function(){
 			return $( this ).data( dataName ) === 'mask' ;
