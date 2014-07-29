@@ -45,6 +45,8 @@
     font-size:85%;
     letter-spacing:.05em;
     padding:1em;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 input {
