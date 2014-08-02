@@ -3,16 +3,17 @@ simple-sidebar
 
 A simple jQuery sidebar plugin
 
-####With this simple plug-in you can choose to use the right-sidebar or the left-sidebar and switch from one to the other in just one type! [see options](#options)####
+With this simple plug-in you can choose to use the right-sidebar or the left-sidebar and switch from one to the other in just one type! [see options](#options)
 
-###[DEMO](http://dcdeiv.github.io/simple-sidebar)
-###[Right-Sidebar DEMO](http://dcdeiv.github.io/simple-sidebar/demo-right/index.html)
-###[Left-Sidebar DEMO](http://dcdeiv.github.io/simple-sidebar/demo-left/index.html)
+##DEMO:
+* [DEMO](http://dcdeiv.github.io/simple-sidebar);
+* [Right-Sidebar DEMO](http://dcdeiv.github.io/simple-sidebar/demo-right/index.html);
+* [Left-Sidebar DEMO](http://dcdeiv.github.io/simple-sidebar/demo-left/index.html);
+* [Material-Designed](http://materialdesigned.tumblr.com/)
 
 ##DOWNLOAD
-Git: `git clone https://github.com/dcdeiv/simple-sidebar`
-  
-Bower: `bower install simple-sidebar`
+* **Git**: `git clone https://github.com/dcdeiv/simple-sidebar`;
+* **Bower**: `bower install simple-sidebar`.
 
 ##INSTALL
 `<script src="path/to/jquery.simple-sidebar.min.js"></script>`
