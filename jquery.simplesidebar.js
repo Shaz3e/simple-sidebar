@@ -1,4 +1,4 @@
-//Simple Sidebar v1.0.2 by DcDeiv https://github.com/dcdeiv
+//Simple Sidebar v1.0.3 by DcDeiv https://github.com/dcdeiv
 // GPLv2 http://www.gnu.org/licenses/gpl-2.0-standalone.html
 (function( $ ) {
 	$.fn.simpleSidebar = function( options ) {
@@ -44,7 +44,7 @@
 			defAlign  = config.sidebar.align,
 			sbMaxW    = config.sidebar.width,
 			gap       = config.sidebar.gap,
-			$links    = $sidebar.find( config.sidebar.closingLinks ),
+			$links    = config.sidebar.closingLinks,
 			defStyle  = config.sidebar.style,
 			maskDef   = config.mask.style,
 			winMaxW   = sbMaxW + gap,
@@ -181,8 +181,9 @@
 			
 			$opener.click( animateToRight );
 			
-			maskDiv.add( $links )
-				.click( animateToLeft );
+			maskDiv.click( animateToLeft );
+			
+			$sidebar.on( 'click', $links, animateToLeft );
 		} else {
 			$sidebar.css({
 				position: 'fixed',
@@ -198,8 +199,9 @@
 			
 			$opener.click( animateToLeft );
 			
-			maskDiv.add( $links )
-				.click( animateToRight );
+			maskDiv.click( animateToRight );
+			
+			$sidebar.on( 'click', $links, animateToRight );
 		}
 		
 		//Adding responsive to $sidebar
