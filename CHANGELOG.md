@@ -1,20 +1,19 @@
-Simple-Sidebar
-================
-#CHANGELOG
+CHANGELOG
+============
 
 ##[v1.0.3](https://github.com/dcdeiv/simple-sidebar/releases/tag/v1.0.3)
 * FIXED:
-** Issue [#3](https://github.com/dcdeiv/simple-sidebar/issues/3).
+ * Issue [#3](https://github.com/dcdeiv/simple-sidebar/issues/3).
 
 ##[v1.0.2](https://github.com/dcdeiv/simple-sidebar/releases/tag/v1.0.2)
 * FIXED:
-** Mask-div: now it is appended and not prepended to body;
-** anchor links: now they work properly;
-** right-sidebar: now it works properly;
+ * Mask-div: now it is appended and not prepended to body;
+ * anchor links: now they work properly;
+ * right-sidebar: now it works properly;
 * DELETED:
-** colsole.log;
+ * colsole.log;
 * ADDED:
-** support for elements positioned absolute.
+ * support for elements positioned absolute.
 
 ##[v1.0.1](https://github.com/dcdeiv/simple-sidebar/releases/tag/v1.0.1)
 * FIXED: mask:
