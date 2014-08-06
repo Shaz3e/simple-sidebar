@@ -16,8 +16,8 @@ With this simple plug-in you can choose to use the right-sidebar or the left-sid
 * **Git**: `git clone https://github.com/dcdeiv/simple-sidebar`;
 * **Bower**: `bower install simple-sidebar`.
 
-##INSTALL
-`<script src="path/to/jquery.simple-sidebar.min.js"></script>`
+##CHANGELOG
+I strongly recommend to everyone to read the changelog [here](CHANGELOG.md) before updating the plug-in.
 
 ##EXAMPLE OF USAGE:
 **These options (except mask and mask.style) are all required**
