@@ -1,6 +1,10 @@
 CHANGELOG
 ============
 
+##[v1.1.0](https://github.com/dcdeiv/simple-sidebar/releases/tag/v1.1.0)
+* FIXED:
+ * maskDiv double-click bug. 
+
 ##[v1.0.3](https://github.com/dcdeiv/simple-sidebar/releases/tag/v1.0.3)
 * FIXED:
  * Issue [#3](https://github.com/dcdeiv/simple-sidebar/issues/3).
@@ -16,4 +20,4 @@ CHANGELOG
  * support for elements positioned absolute.
 
 ##[v1.0.1](https://github.com/dcdeiv/simple-sidebar/releases/tag/v1.0.1)
-* FIXED: mask:
+* FIXED: maskDiv.
